@@ -100,7 +100,7 @@ int main(){
     getMaxChain(&D, C, 1, &maxLen, maxChain);
 
     for(int i=0; i<maxLen; i++){
-        if((*maxChain)[i].word != ""){
+        if(strcmp((*maxChain)[i].word, "") != 0){
             printf("%s\n", (*maxChain)[i].word);
         }
     }

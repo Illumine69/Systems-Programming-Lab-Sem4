@@ -11,6 +11,7 @@ library : $(OBJFILES)
 
 clean :
 	-$(RM) $(OBJFILES) $(LIBNAME)
+	-$(RM) $(LIBDIR)/$(LIBNAME) $(INCLUDEDIR)/trie.h
 
 install :  library
 	cp $(LIBNAME) $(LIBDIR)

@@ -1,5 +1,5 @@
 maxchain :
-	gcc -o max maxchain.c -lwordutils -ltrie
+	gcc -Wall -o max maxchain.c -lwordutils -ltrie
 	./max
 
 subwords :
@@ -8,7 +8,3 @@ subwords :
 
 clean :
 	rm -f max sub
-
-checkmaxchain :
-	gcc -g -I../util -o maxchain maxchain.c -lwordutils -ltrie
-	gdb ./maxchain

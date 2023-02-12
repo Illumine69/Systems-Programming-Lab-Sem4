@@ -12,6 +12,8 @@ library : $(OBJFILES)
 
 clean :
 	-$(RM) $(OBJFILES) $(LIBNAME)
+	-$(RM) $(LIBDIR)/$(LIBNAME) $(INCLUDEDIR)/wordutils.h
+	-$(RM) -r $(INCLUDESUBDIR)
 
 install : library
 	cp $(LIBNAME) $(LIBDIR)

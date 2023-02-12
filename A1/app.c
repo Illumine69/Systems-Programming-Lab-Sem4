@@ -13,7 +13,7 @@ int main(){
 	printf("\n");
 	#else
 	srand(time(0));
-        n = rand() % 4294967296;
+	n = rand() % 4294967296;
 	#endif
 	while(n >= 0){
 

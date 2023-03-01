@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int Fib(int);
-
 double tarea ( int x1, int y1, int x2, int y2, int x3, int y3 )
 {
 double area;

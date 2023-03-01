@@ -23,6 +23,15 @@
 4.  
 5.  Use `file <exe-file>`
 6.  To re-run from beginning, type `run`   
-    Breakpoints remain the same   
-    Variables' values have to be entered again  
+    Breakpoints and value history remain the same   
+    Variables' values have to be entered again
+7.  Use the `show` command  
+
+8.      //conditional break
+        break 234
+        condition 234 p==NULL\
+        
+        //to get value of n
+        print n
+9.  
     

@@ -54,4 +54,41 @@
 
             (gdb) watch x if x > 100
         This will pause the program execution only when the value of x is greater than 100.
-13. 
+13. At a breakpoint, you can use the `x` command to examine the memory content of the program.  
+    `(gdb) x /[format] [length] [address]`
+
+    > **format** specifies the display format for the memory contents (such as `x` for hexadecimal, `d` for decimal, or `c` for character), **length** specifies the number of units to display, and **address** is the memory address to examin
+
+    For example, `x /x 16 0x1000` will examine 16 bytes of memory starting at address 0x1000 in hexadecimal format
+
+    - to examine the contents of a variable **x**, use-     
+    `x /d &x`
+    - The x command also supports a range of modifiers that allow you to customize the output.      
+
+            (gdb) x /t 0x1000  # display a byte at address 0x1000
+            (gdb) x /h 0x1000  # display a half-word at address 0x1000
+            (gdb) x /w 0x1000  # display a word at address 0x1000
+            (gdb) x /i 0x1000  # display the disassembled instruction at address 0x1000
+            (gdb) x /s 0x1000  # display a null-terminated string at address 0x1000
+
+14. At the breakpoint set at the first printf statement, the values of **A** and **i** are uninitialized and may contain garbage values. Therefore, the values displayed by the `x` command may vary depending on the system and compiler used.     
+
+        (gdb) x /5wx A
+        0x7fffffffd8e0: 0x0000000f      0x00000010      0x00000011      0x00000000
+        0x7fffffffd8f0: 0x00000000
+    >`x/5wx A` : This command displays the 5 words (4 bytes each) starting at the memory address of the first element of array A        
+
+        (gdb) x /5wx A+1
+        0x7fffffffd8e4: 0x00000010      0x00000011      0x00000000      0x00000000
+        0x7fffffffd8f4: 0x00000000
+    >`x/5wx A+1` : This command displays the 5 words starting at the memory address of the second element of array A    
+
+        (gdb) x/5wx A-1
+        0x7fffffffd8dc: 0x00000000      0x0000000f      0x00000010      0x00000011
+        0x7fffffffd8ec: 0x00000000
+    >`x/5wx A-1`: This command displays the 5 words starting at the memory address of the last word of the previous stack frame, which may contain the return address
+
+        x/1wx &i
+        0x7fffffffd8dc: 0x00000000
+    >`x/1wx &i` displays the word (4 bytes) starting at the memory address of the variable **i**. Since **i** is uninitialized and may contain garbage data
+15. 

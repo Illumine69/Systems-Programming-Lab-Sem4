@@ -91,4 +91,13 @@
         x/1wx &i
         0x7fffffffd8dc: 0x00000000
     >`x/1wx &i` displays the word (4 bytes) starting at the memory address of the variable **i**. Since **i** is uninitialized and may contain garbage data
-15. 
+15. To scrutinize the line-by-line working of **g()** only in the first call, we can set a breakpoint at Line 100 and use the gdb command next (or n) to step through the code one line at a time.
+
+    Once the breakpoint is reached, we can use the `step` (or s) command to step into the function call of either **f()** or **g()**, depending on which function is called first in the expression **f(x) + g(y)**.
+
+    If we step into the function call of **f()**, we can use the `finish` command to complete the execution of the current function and return to the caller (Line 100). Then, we can use the `next` command to step to the next line, which would be the function call of **g()**. We can then use the `step` command to step into the function call of **g()** and scrutinize its line-by-line working.
+
+    If we step into the function call of **g()** first, we can use the `next` command to step over the remaining function calls and return to the caller (Line 100). Then, we can use the `finish` command to complete the execution of the current function and return to the caller of main(). We can then use the `next` command to step to the next line, which would be the end of the statement that assigns the result of **f(x) + g(y)** to **z**.
+
+    After scrutinizing the line-by-line working of **g()** in the first call, we can disable the breakpoint using the `disable` command to avoid stopping at it in the subsequent function calls. This way, we can continue to run the program normally without being interrupted by the debugger.
+16. 

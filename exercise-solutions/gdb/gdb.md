@@ -100,4 +100,20 @@
     If we step into the function call of **g()** first, we can use the `next` command to step over the remaining function calls and return to the caller (Line 100). Then, we can use the `finish` command to complete the execution of the current function and return to the caller of main(). We can then use the `next` command to step to the next line, which would be the end of the statement that assigns the result of **f(x) + g(y)** to **z**.
 
     After scrutinizing the line-by-line working of **g()** in the first call, we can disable the breakpoint using the `disable` command to avoid stopping at it in the subsequent function calls. This way, we can continue to run the program normally without being interrupted by the debugger.
-16. 
+16. Done in Q.15 solution
+17. To scrutinize the line-by-line working of **g()** only for the call in Line 64, we can set a breakpoint at Line 64 and use the command `next` (or n) to step through the code one line at a time.
+
+    Once the breakpoint is reached, we can use the `step` (or s) command to step into the function call of **f(n)** in the expression **g(f(n))**. We can then use the `finish` command to complete the execution of the current function and return to the caller of **f()**.
+
+    Next, we can use the `next` command to step over the remaining function calls of **f()** and return to Line 64. Then, we can use the step command to step into the function call of **g()** in the expression **g(f(n))** and scrutinize its line-by-line working for this call only.
+
+    After scrutinizing the line-by-line working of **g()** in this call, we can disable the breakpoint using the `disable` command to avoid stopping at it in the subsequent function calls. This way, we can continue to run the program normally without being interrupted by the debugger.
+
+18. You can set a breakpoint at Line 128 and then use gdb's `if` command to check if the value of t is non-zero before continuing execution. If **t** is *non-zero*, you can use the continue command to resume normal execution. If **t** is *zero*, you can use the `return` command to exit the current function and return to the caller (main() in this case).
+
+    -  Set breakpoint using `break myfunc:128`
+    - When program stops at breakpoint, write this:     
+
+            if t != 0 then continue else return end
+
+19. 

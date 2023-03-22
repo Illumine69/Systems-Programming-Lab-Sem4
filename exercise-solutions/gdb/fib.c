@@ -10,3 +10,10 @@ int Fib ( int n ){
     }
     return Fib(n-1) + Fib(n-2);
 }
+
+int main(){
+    int n;
+    printf("Enter a non-negative integer: "); scanf("%d", &n);
+    printf("Fib(%d) = %d)\n", n, Fib(n));
+    exit(0);
+}

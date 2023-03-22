@@ -16,9 +16,8 @@
         gdb ./a.out
 
     Using list directive will run the main function of allparts.c.  
-    //To list individual part files partx.c, use `l partx.c:LINNUM`   
-    //To set breakpoint at specified line number in the part files, use
-    //`b FILENAME:LINNUM`
+    To list individual part files partx.c, use `l partx.c:LINNUM`   
+    To set breakpoint at specified line number in the part files, use `b FILENAME:LINNUM`
     
 4.  
 5.  Use `file <exe-file>`
